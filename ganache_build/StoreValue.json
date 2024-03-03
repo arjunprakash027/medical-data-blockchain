@@ -1,0 +1,16 @@
+[
+    {
+      "inputs": [],
+      "name": "get_output",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function",
+      "constant": true
+    }
+  ]

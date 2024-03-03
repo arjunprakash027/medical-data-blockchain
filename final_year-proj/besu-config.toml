@@ -1,0 +1,10 @@
+# besu-config.toml
+
+network = "classic"
+sync-mode = "FULL"
+rpc-http-cors-origins = ["all"] 
+host-allowlist = ["*"]
+rpc-ws-enabled = true
+rpc-http-enabled = true
+data-path = "D:\\projects\\besu-24.2.0-RC3\\final_year-proj\\chain_data"
+metrics-enabled = true
