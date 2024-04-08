@@ -77,14 +77,16 @@ async function upload_to_blockchain(data_url){
   const provider = new ethers.JsonRpcProvider(host);
   const wallet = new ethers.Wallet(accountPrivateKey, provider);
 
-  createContract(provider, wallet, contractAbi, contractBytecode, data_url)
+  add = createContract(provider, wallet, contractAbi, contractBytecode, data_url)
   .then(async function(contract){
     contractAddress = await contract.getAddress();
     console.log("Contract deployed at address: " + contractAddress);
-
+    return contractAddress;
   })
   .catch(console.error);
+  return add
 }
+
 async function uploadToIpfs() {
 
   await Moralis.start({
@@ -102,14 +104,16 @@ async function uploadToIpfs() {
   return response.result[0].path
 }
 
-const main = () => {
-  var path = uploadToIpfs();
-	//compileContracts();
-  upload_to_blockchain(path);
-}
+const main = async () => {
+  try {
+    const path = await uploadToIpfs();
+    const address = await upload_to_blockchain(path);
+    return address;
+  } catch (error) {
+    console.error(error);
+    throw error; // Rethrow the error to handle it outside if needed
+  }
+};
 
-if (require.main === module) {
-  main();
-}
+module.exports = main
 
-module.exports = exports = main

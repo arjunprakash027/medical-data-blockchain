@@ -18,11 +18,11 @@ async function get_value(deployedContractAddress){
     const contractJson = JSON.parse(fs.readFileSync(contractJsonPath));
     const contractAbi = contractJson.abi;
     const provider = new ethers.JsonRpcProvider(host);
-    await getValueAtAddress(provider, contractAbi, deployedContractAddress);
+    return await getValueAtAddress(provider, contractAbi, deployedContractAddress);
   }
 
-  if (require.main === module) {
-    get_value("0xeB35B7bA819DAD84E60752c357d45e5ce41D85c5");
-  }
+
+module.exports = get_value
+
 
 
