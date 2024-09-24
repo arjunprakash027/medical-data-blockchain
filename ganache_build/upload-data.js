@@ -16,7 +16,7 @@ function writeToFile(filePath, data) {
 async function uploadToIpfs() {
 
   await Moralis.start({
-    apiKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub25jZSI6IjA2ZTJjNWNiLWVkZWYtNDRhNS1iMjhhLWY3M2ZiNzFlNzcxYiIsIm9yZ0lkIjoiMzE1NDQ1IiwidXNlcklkIjoiMzI0MzI3IiwidHlwZUlkIjoiNGRiMzBhNzktOWU4OS00MzVjLWE3NjAtY2QzMGQ4Y2M5MjcwIiwidHlwZSI6IlBST0pFQ1QiLCJpYXQiOjE3MDczNTQ4NTQsImV4cCI6NDg2MzExNDg1NH0.SWiawFs1H2oxjanKPvXGv2QWLjQhGrLqJzaUzMAd804",
+    apiKey: "",
   });
 
   const uploadArray = [{ path: "child-data.csv", content: fs.readFileSync('README.md', { encoding: 'base64' }) }]
